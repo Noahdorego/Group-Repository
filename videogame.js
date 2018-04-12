@@ -25,3 +25,17 @@ function draw() {
 	textSize(50);
 	text("Logo", 195, 250);
 }
+
+Amanuels part below
+class Rectangle {
+float left;
+float right;
+float top; 
+float bottom;
+
+Rectangle(float x, float y, float w, float  h) {
+	left x;
+	right = x + w;
+	top y;
+	bottom = y + h
+}	
