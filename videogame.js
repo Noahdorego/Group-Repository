@@ -26,7 +26,7 @@ function draw() {
 	text("Logo", 195, 250);
 }
 
-Amanuels part below
+//Amanuels part below
 class Rectangle {
 float left;
 float right;
