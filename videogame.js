@@ -27,8 +27,7 @@ function draw() {
 }
 
 //Amanuels part below
-class Rectangle {
-float left;
+class Rectangle {float left;
 float right;
 float top; 
 float bottom;
@@ -37,5 +36,12 @@ Rectangle(float x, float y, float w, float  h) {
 	left x;
 	right = x + w;
 	top y;
-	bottom = y + h
+	bottom = y + h;
 }	
+
+boolean intersects(Reectangle other) {
+	return (this.left > other.right||
+				this.right < other.left||
+				this.top > other.bottom||
+				this.bottom < other.top);
+}
