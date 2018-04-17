@@ -40,8 +40,8 @@ Rectangle(float x, float y, float w, float  h) {
 }	
 
 boolean intersects(Reectangle other) {
-	return (this.left > other.right||
-				this.right < other.left||
-				this.top > other.bottom||
+	return (this.left > other.right ||
+				this.right < other.left ||
+				this.top > other.bottom ||
 				this.bottom < other.top);
 }
