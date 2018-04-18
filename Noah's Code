@@ -1,5 +1,6 @@
 
-// This program will move a car automatically
+// This program will move a car with the arrow keys
+
 
 noStroke();
 
@@ -30,7 +31,16 @@ draw = function() {
     
     drawCar();
     
-    x += 1;
+    if (keyIsPressed && keyCode === UP) {
+    x += 2;
+    }
+    
+    if (keyIsPressed && keyCode === DOWN) {
+    x += -2;
+    }
+    
+    
+    
 };
 
 fill(255, 255, 255);
