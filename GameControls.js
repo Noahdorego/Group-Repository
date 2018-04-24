@@ -1,4 +1,7 @@
-noStroke();
+function setup() {
+  createCanvas(400, 400);
+    noStroke();
+}
 
 var x = 200;
 var y = 380;
