@@ -7,19 +7,30 @@ var x = 200;
 var y = 380;
 var randomX = random(0,400);
 var downY = 0;
+var currentScene;
 
+// Character
 var drawCharacter = function(){
     fill(255, 0, 0);
     ellipse(x, y, 20, 20);  
 };
 
+// Obstacles
 var drawObject = function(){
     fill(0, 0, 0);
     rect(randomX, downY, 20, 20);  
 };
 
-draw = function () {
-  background(235, 235, 235);
+// Starting Screen
+var drawScene1 =function(){
+    fill(0, 0, 0);
+    text("Frogger", 91, 68);
+};
+
+// Frogger game
+var drawScene2 =function(){
+    draw = function() {
+        background(235, 235, 235);
   
   drawCharacter();  
   
@@ -45,4 +56,21 @@ draw = function () {
     }
   downY += 2;
   
+    };
+  
 };
+
+draw = function() {
+    if (currentScene === 2) {
+        drawScene2();
+    }
+};
+
+mouseClicked=function(){
+    if (currentScene === 1) {
+        drawScene2();
+    } else if (currentScene === 2) {
+        drawScene1();
+    }
+};
+
