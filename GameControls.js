@@ -1,13 +1,14 @@
 function setup() {
-  createCanvas(400, 400);
     noStroke();
 }
 
 var x = 200;
 var y = 380;
-var randomX = random(0,400);
+var randomX = random(0, 200);
+var randomX2 = random(201, 400);
 var downY = 0;
-var currentScene;
+var downY2 = 0;
+var currentScene = 2;
 
 // Character
 var drawCharacter = function(){
@@ -17,19 +18,30 @@ var drawCharacter = function(){
 
 // Obstacles
 var drawObject = function(){
-    fill(0, 0, 0);
-    rect(randomX, downY, 20, 20);  
+    fill(240, 218, 19);
+    rect(randomX + 5, downY + 10, 10, 15); 
+    fill(255, 255, 255);
+    rect(randomX, downY, 20, 20); 
+    rect(randomX - 10, downY + 3, 40, 10);
+};
+
+var drawObject2 = function(){
+    fill(240, 218, 19);
+    rect(randomX2 + 5, downY2 + 10, 10, 15); 
+    fill(255, 255, 255);
+    rect(randomX2, downY2, 20, 20); 
+    rect(randomX2 - 10, downY2 + 3, 40, 10);
+    
 };
 
 // Starting Screen
 var drawScene1 =function(){
-    fill(0, 0, 0);
+    fill(255, 255, 255);
     text("Frogger", 91, 68);
 };
 
 // Frogger game
 var drawScene2 =function(){
-    draw = function() {
         background(235, 235, 235);
   
   drawCharacter();  
@@ -47,18 +59,32 @@ var drawScene2 =function(){
      x -= 4;   
     }
     
-    for (var i = 0; i < 20; i+=1) {
+    for (var i = 0; i < 5; i+=1) {
     drawObject();
-    if (downY > 400) {
+    if (downY > 410) {
         downY = 0;
-        randomX = random(0, 350);
+        pushMatrix();
+        randomX = random(0, 200);
+        popMatrix();
      }
     }
-  downY += 2;
+    downY += 2;
+    
+    
+    for (var i = 0; i < 5; i+=1) {
+    drawObject2();
+    if (downY2 > 410) {
+        downY2 = 0;
+        pushMatrix();
+        randomX2 = random(201, 350);
+        popMatrix();
+     }
+    }
+    downY2 += 3;
   
     };
   
-};
+
 
 draw = function() {
     if (currentScene === 2) {
@@ -69,8 +95,5 @@ draw = function() {
 mouseClicked=function(){
     if (currentScene === 1) {
         drawScene2();
-    } else if (currentScene === 2) {
-        drawScene1();
-    }
+    } 
 };
-
