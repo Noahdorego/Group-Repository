@@ -8,7 +8,7 @@ var randomX = random(0, 200);
 var randomX2 = random(201, 400);
 var downY = 0;
 var downY2 = 0;
-var currentScene = 2;
+var currentScene = 1;
 
 // Character
 var drawCharacter = function(){
@@ -42,6 +42,8 @@ var drawScene1 =function(){
 
 // Frogger game
 var drawScene2 =function(){
+    draw = function() {
+        
         background(235, 235, 235);
   
   drawCharacter();  
@@ -81,16 +83,17 @@ var drawScene2 =function(){
      }
     }
     downY2 += 3;
-  
+    
+    };
     };
   
-
 
 draw = function() {
     if (currentScene === 2) {
         drawScene2();
     }
 };
+
 
 mouseClicked=function(){
     if (currentScene === 1) {
