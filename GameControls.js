@@ -133,6 +133,11 @@ var drawScene2 =function(){
     
     downY += 2.5;
     
+    if (downY < y + 20 && downY > y - 20 && randomX < x + 20 && randomX > x - 20) {
+        fill(0, 0, 0);
+        text("boneless", 100, 100);
+    }
+    
 
     drawBird2();
     if (downY2 > 410) {
@@ -144,6 +149,10 @@ var drawScene2 =function(){
     
     downY2 += 3.5;
     
+    if (downY2 < y + 20 && downY2 > y - 20 && randomX2 < x + 20 && randomX2 > x - 20) {
+        fill(0, 0, 0);
+        text("boneless", 100, 100);
+    }
     
     if (roadY > 400) {
         roadY = 0;
@@ -168,4 +177,3 @@ mouseClicked=function(){
         drawScene2();
     } 
 };
-
