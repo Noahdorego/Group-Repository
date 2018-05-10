@@ -8,16 +8,19 @@ var randomX = random(0, 200);
 var randomX2 = random(201, 400);
 var downY = 0;
 var downY2 = 0;
+var roadY = 0;
+var carX = 0;
 var currentScene = 1;
 
 // Character
 var drawCharacter = function(){
-    fill(255, 0, 0);
+var player = fill(255, 0, 0);
     ellipse(x, y, 20, 20);  
 };
 
 // Obstacles
-var drawObject = function(){
+
+var drawBird = function(){
     fill(240, 218, 19);
     rect(randomX + 5, downY + 10, 10, 15); 
     fill(255, 255, 255);
@@ -25,7 +28,7 @@ var drawObject = function(){
     rect(randomX - 10, downY + 3, 40, 10);
 };
 
-var drawObject2 = function(){
+var drawBird2 = function(){
     fill(240, 218, 19);
     rect(randomX2 + 5, downY2 + 10, 10, 15); 
     fill(255, 255, 255);
@@ -34,10 +37,41 @@ var drawObject2 = function(){
     
 };
 
+var drawCar = function() {
+
+//body
+fill(3, 230, 44);
+rect(carX, roadY, 36, 20);
+
+//window
+fill(41, 35, 35);
+rect(carX + 8, roadY + 2, 19, 16);
+
+//wheels
+rect(carX + 3, roadY - 2, 6, 2);
+rect(carX + 25, roadY - 2, 6, 2);
+rect(carX + 3, roadY + 20, 6, 2);
+rect(carX + 25, roadY + 20, 6, 2);
+
+};
+
+//Road Movment Program
+var drawRoad = function(){
+ fill(115, 111, 111);
+ rect(0, roadY, 400, 80);
+};
+
+//Scenery
+
+
+
 // Starting Screen
 var drawScene1 =function(){
+    background(84, 87, 176);
+    
     fill(255, 255, 255);
-    text("Frogger", 91, 68);
+    textSize(50);
+    text("Frogger", 115, 55);
 };
 
 // Frogger game
@@ -45,6 +79,11 @@ var drawScene2 =function(){
     draw = function() {
         
         background(235, 235, 235);
+        
+    drawRoad();
+    
+    roadY += 2;
+    
   
   drawCharacter();  
   
@@ -61,36 +100,65 @@ var drawScene2 =function(){
      x -= 4;   
     }
     
-    for (var i = 0; i < 5; i+=1) {
-    drawObject();
+    //x & y display
+    //fill(0, 0, 0);
+    //text(x, 100, 40);
+    //text(y, 200, 40);
+    
+    if (x < 10) {
+     x = 10;   
+    }
+    
+    if (x > 388) {
+     x = 388;   
+    }
+    
+    if (y < 11) {
+     y = 11;   
+    }
+    
+    if (y > 388) {
+     y = 388;   
+    }
+    
+    drawCar();
+    
+    carX += 3;
+    
+    drawBird();
     if (downY > 410) {
         downY = 0;
-        pushMatrix();
         randomX = random(0, 200);
-        popMatrix();
      }
-    }
-    downY += 2;
     
+    downY += 2.5;
     
-    for (var i = 0; i < 5; i+=1) {
-    drawObject2();
+
+    drawBird2();
     if (downY2 > 410) {
         downY2 = 0;
-        pushMatrix();
         randomX2 = random(201, 350);
-        popMatrix();
      }
-    }
-    downY2 += 3;
+     
     
+    
+    downY2 += 3.5;
+    
+    
+    if (roadY > 400) {
+        roadY = 0;
+        carX = 0;
+    }
+    
+        };
     };
-    };
-  
+
 
 draw = function() {
     if (currentScene === 2) {
         drawScene2();
+    } else if (currentScene === 1) {
+        drawScene1();
     }
 };
 
@@ -100,3 +168,4 @@ mouseClicked=function(){
         drawScene2();
     } 
 };
+
