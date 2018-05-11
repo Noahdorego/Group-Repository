@@ -74,6 +74,14 @@ var drawScene1 =function(){
     text("Frogger", 115, 55);
 };
 
+var drawScene3 = function() {
+    background(84, 87, 176);
+    
+    fill(255, 255, 255);
+    textSize(50);
+    text("Game Over!", 65, 55);
+};
+
 // Frogger game
 var drawScene2 =function(){
     draw = function() {
@@ -134,8 +142,10 @@ var drawScene2 =function(){
     downY += 2.5;
     
     if (downY < y + 20 && downY > y - 20 && randomX < x + 20 && randomX > x - 20) {
-        fill(0, 0, 0);
-        text("boneless", 100, 100);
+        drawScene3();
+        currentScene = 3;
+        downY = y;
+        downY2 = 500;
     }
     
 
@@ -150,17 +160,28 @@ var drawScene2 =function(){
     downY2 += 3.5;
     
     if (downY2 < y + 20 && downY2 > y - 20 && randomX2 < x + 20 && randomX2 > x - 20) {
-        fill(0, 0, 0);
-        text("boneless", 100, 100);
+        drawScene3();
+        currentScene = 3;
+        downY2 = y;
     }
+    
     
     if (roadY > 400) {
         roadY = 0;
         carX = 0;
     }
     
+    if (roadY < y + 20 && roadY > y - 20 && carX < x + 20 && carX > x - 20) {
+        drawScene3();
+        currentScene = 3;
+        carX = x;
+        roadY = y;
+    }
+    
         };
     };
+    
+
 
 
 draw = function() {
@@ -168,6 +189,8 @@ draw = function() {
         drawScene2();
     } else if (currentScene === 1) {
         drawScene1();
+    } else if (currentScene === 3) {
+        drawScene3();
     }
 };
 
@@ -175,5 +198,13 @@ draw = function() {
 mouseClicked=function(){
     if (currentScene === 1) {
         drawScene2();
-    } 
+    } else if (currentScene === 3) {
+    downY = 0;
+    downY2 = 0;
+    roadY = 0;
+    carX = 0;
+    var x = 200;
+    var y = 380;
+        drawScene2();
+    }
 };
