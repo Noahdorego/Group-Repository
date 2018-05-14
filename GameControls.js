@@ -4,6 +4,7 @@ function setup() {
 
 var x = 200;
 var y = 380;
+var score = 0;
 var randomX = random(0, 200);
 var randomX2 = random(201, 400);
 var downY = 0;
@@ -77,9 +78,12 @@ var drawScene1 =function(){
 var drawScene3 = function() {
     background(84, 87, 176);
     
+    score -= 1;
     fill(255, 255, 255);
     textSize(50);
     text("Game Over!", 65, 55);
+    textSize (30);
+    text("Your score is " + score, 72, 126);
 };
 
 // Frogger game
@@ -91,6 +95,13 @@ var drawScene2 =function(){
     drawRoad();
     
     roadY += 2;
+    
+    score += 1;
+    
+    //Score Display
+    fill(0, 0, 0);
+    textSize(30);
+    text(score, 0, 25);
     
   
   drawCharacter();  
@@ -107,11 +118,6 @@ var drawScene2 =function(){
     if (keyIsPressed && keyCode === LEFT) {
      x -= 4;   
     }
-    
-    //x & y display
-    //fill(0, 0, 0);
-    //text(x, 100, 40);
-    //text(y, 200, 40);
     
     if (x < 10) {
      x = 10;   
@@ -141,7 +147,8 @@ var drawScene2 =function(){
     
     downY += 2.5;
     
-    if (downY < y + 20 && downY > y - 20 && randomX < x + 20 && randomX > x - 20) {
+    //Bird1 Collision
+    if (downY < y + 25 && downY > y - 25 && randomX < x + 10 && randomX > x - 30) {
         drawScene3();
         currentScene = 3;
         downY = y;
@@ -159,7 +166,9 @@ var drawScene2 =function(){
     
     downY2 += 3.5;
     
-    if (downY2 < y + 20 && downY2 > y - 20 && randomX2 < x + 20 && randomX2 > x - 20) {
+    
+    //Bird2 Collision
+    if (downY2 < y + 25 && downY2 > y - 25 && randomX2 < x + 10 && randomX2 > x - 30) {
         drawScene3();
         currentScene = 3;
         downY2 = y;
@@ -171,6 +180,7 @@ var drawScene2 =function(){
         carX = 0;
     }
     
+    //Car Collison
     if (roadY < y + 20 && roadY > y - 20 && carX < x + 20 && carX > x - 20) {
         drawScene3();
         currentScene = 3;
@@ -203,8 +213,8 @@ mouseClicked=function(){
     downY2 = 0;
     roadY = 0;
     carX = 0;
-    var x = 200;
-    var y = 380;
+    x = 200;
+    y = 380;
         drawScene2();
     }
 };
