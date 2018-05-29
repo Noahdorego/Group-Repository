@@ -10,6 +10,7 @@ var y = 380;
 
 //Score
 var score = 0;
+var highscore = 0;
 
 //Bird Spawning
 var xPositions = [Math.random(0, 200), Math.random(201, 400), Math.random(0, 400)];
@@ -115,20 +116,26 @@ var drawScene1 =function(){
     fill(255, 255, 255);
     textSize(50);
     text("Look Both Ways", 18, 55);
-    
+    textSize(20);
+    text("Use Arrow Keys to Avoid Enemies", 45, 100);
     fill(74, 74, 74);
 };
 
 //Losing Screen
 var drawScene3 = function() {
     background(84, 87, 176);
+	
+	if (score > highscore) {
+     highscore = score;   
+    }
     
     score -= 1;
     fill(255, 255, 255);
     textSize(50);
     text("Game Over!", 65, 55);
     textSize (30);
-    text("Your score is " + score, 72, 126);
+    text("Your score is " + score, 80, 126);
+		text("The Highscore is " + highscore, 56, 250);
 };
 
 // Frogger game
