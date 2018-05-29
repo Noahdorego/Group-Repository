@@ -1,5 +1,7 @@
 function setup() {
-    noStroke();
+	createCanvas(400, 400);
+	background(100);
+	noStroke();
 }
 
 //Main Character
@@ -10,14 +12,16 @@ var y = 380;
 var score = 0;
 
 //Bird Spawning
-var xPositions = [random(0, 200), random(201, 400), random(0, 400)];
+var xPositions = [Math.random(0, 200), Math.random(201, 400), Math.random(0, 400)];
 var downY = 0;
 var downY2 = 0;
 var downY3 = 0;
 
 //Road & Car
 var roadY = 0;
+var roadY2 = 40;
 var carX = 0;
+var carX2 = 400;
 
 var currentScene = 1;
 
@@ -58,26 +62,47 @@ var drawBird3 = function(){
 var drawCar = function() {
 
 //body
-fill(3, 230, 44);
-rect(carX, roadY, 36, 20);
+fill(223, 245, 79);
+rect(carX, roadY + 5, 36, 20);
 
 //window
 fill(41, 35, 35);
-rect(carX + 8, roadY + 2, 19, 16);
+rect(carX + 8, roadY + 7, 19, 16);
 
 //wheels
-rect(carX + 3, roadY - 2, 6, 2);
-rect(carX + 25, roadY - 2, 6, 2);
-rect(carX + 3, roadY + 20, 6, 2);
-rect(carX + 25, roadY + 20, 6, 2);
+rect(carX + 3, roadY + 3, 6, 2);
+rect(carX + 25, roadY + 3, 6, 2);
+rect(carX + 3, roadY + 25, 6, 2);
+rect(carX + 25, roadY + 25, 6, 2);
 
 };
+
+var drawCar2 = function() {
+
+//body
+fill(81, 86, 245);
+rect(carX2, roadY2 + 5, 36, 20);
+
+//window
+fill(41, 35, 35);
+rect(carX2 + 8, roadY2 + 7, 19, 16);
+
+//wheels
+rect(carX2 + 3, roadY2 + 3, 6, 2);
+rect(carX2 + 25, roadY2 + 3, 6, 2);
+rect(carX2 + 3, roadY2 + 25, 6, 2);
+rect(carX2 + 25, roadY2 + 25, 6, 2);
+
+};
+
 
 //Road Movment Program
 var drawRoad = function(){
  fill(115, 111, 111);
  rect(0, roadY, 400, 80);
 };
+
+//Power-ups
 
 //Scenery
 
@@ -89,7 +114,9 @@ var drawScene1 =function(){
     
     fill(255, 255, 255);
     textSize(50);
-    text("Frogger", 115, 55);
+    text("Look Both Ways", 18, 55);
+    
+    fill(74, 74, 74);
 };
 
 //Losing Screen
@@ -108,13 +135,16 @@ var drawScene3 = function() {
 var drawScene2 =function(){
     draw = function() {
         
-        background(235, 235, 235);
+        background(127, 191, 90);
         
     drawRoad();
     
     roadY += 2;
     
+    roadY2 += 2;
+    
     score += 1;
+    
     
     //Score Display
     fill(0, 0, 0);
@@ -123,21 +153,20 @@ var drawScene2 =function(){
   
   drawCharacter();  
   
-    //Controls
   
-    if (keyIsPressed && keyCode === UP) {
+    //Controls
+    if (keyIsPressed && keyCode == 38) {
      y -= 2;   
     }
-    if (keyIsPressed && keyCode === DOWN) {
+    if (keyIsPressed && keyCode == 40) {
      y += 2;   
     }
-    if (keyIsPressed && keyCode === RIGHT) {
+    if (keyIsPressed && keyCode == 39) {
      x += 3;   
     }
-    if (keyIsPressed && keyCode === LEFT) {
+    if (keyIsPressed && keyCode == 37) {
      x -= 3;   
     }
-    
     //Borders
     
     if (x < 10) {
@@ -160,6 +189,58 @@ var drawScene2 =function(){
     
     carX += 3;
     
+    if (score > 600) {
+     carX += 2;   
+    }
+    
+    if (carX > 400) {
+     carX = 0;   
+    }
+    
+    if (roadY > 400) {
+        roadY = 0;
+        roadY2 = 40;
+        carX = 0;
+        carX2 = 400;
+    }
+    
+    
+    //Car Collison
+    if (roadY < y + 20 && roadY > y - 20 && carX < x + 30 && carX > x - 30) {
+        drawScene3();
+        currentScene = 3;
+        carX = x;
+        roadY = y;
+        carX2 = 500;
+        roadY2 = 500;
+        downY = 500;
+        downY2 = 500;
+        downY3 = 500;
+    }
+    
+    if (score > 1500) {
+        drawCar2();
+    }
+    
+    carX2 -= 3;
+    
+    if (carX2 < -30) {
+     carX2 = 400;   
+    }
+    
+    //Car2 Collison
+    if (roadY2 < y + 20 && roadY2 > y - 20 && carX2 < x + 30 && carX2 > x - 30) {
+        drawScene3();
+        currentScene = 3;
+        carX = x;
+        roadY = y;
+        carX2 = 500;
+        roadY2 = 500;
+        downY = 500;
+        downY2 = 500;
+        downY3 = 500;
+    }
+    
     drawBird();
     if (downY > 410) {
         downY = 0;
@@ -173,7 +254,9 @@ var drawScene2 =function(){
         drawScene3();
         currentScene = 3;
         downY = y;
+        xPositions[0] = x;
         downY2 = 500;
+        downY3 = 500;
     }
     
 
@@ -191,13 +274,14 @@ var drawScene2 =function(){
         drawScene3();
         currentScene = 3;
         downY2 = y;
+        xPositions[1] = x;
     }
     
     if (score > 1000) {
      drawBird3();
-    if (downY3 > 410) {
+    if (downY3 > 510) {
         downY3 = 0;
-        xPositions[2] = random(201, 350);
+        xPositions[2] = random(0, 350);
      }
     
     downY3 += 3;   
@@ -209,19 +293,8 @@ var drawScene2 =function(){
         currentScene = 3;
         downY3 = y;
         downY2 = 500;
-    }
-    
-    if (roadY > 400) {
-        roadY = 0;
-        carX = 0;
-    }
-    
-    //Car Collison
-    if (roadY < y + 20 && roadY > y - 20 && carX < x + 20 && carX > x - 20) {
-        drawScene3();
-        currentScene = 3;
-        carX = x;
-        roadY = y;
+        downY = 500;
+        xPositions[2] = x;
     }
     
         };
@@ -238,7 +311,13 @@ draw = function() {
     } else if (currentScene === 3) {
         drawScene3();
         xPositions += 1000;
+        if (keyIsPressed && keyCode === RIGHT) {
+        x += 0;   
+        }
+        if (keyIsPressed && keyCode === LEFT) {
+        x -= 0;   
     }
+  }
 };
 
 
