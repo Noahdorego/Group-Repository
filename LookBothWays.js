@@ -142,7 +142,10 @@ var drawScene3 = function() {
 var drawScene2 =function(){
     draw = function() {
         
-        background(127, 191, 90);
+        background(84, 87, 176);
+        
+    fill(108, 196, 81);
+    rect(0, 0, 400, 400);
         
     drawRoad();
     
