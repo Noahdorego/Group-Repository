@@ -142,10 +142,7 @@ var drawScene3 = function() {
 var drawScene2 =function(){
     draw = function() {
         
-        background(84, 87, 176);
-        
-    fill(108, 196, 81);
-    rect(0, 0, 400, 400);
+        background(127, 191, 90);
         
     drawRoad();
     
@@ -347,4 +344,59 @@ mouseClicked=function(){
     score = 0;
         drawScene2();
     }
+};
+
+//Main Screen
+background(84, 87, 176);
+fill(255, 255, 255);
+rect(127, 164, 146, 64, 94);
+fill(84, 87, 176);
+textSize(35);
+text("Play", 168, 206);
+fill(255, 255, 255);
+textSize(60);
+text("Frogger", 97, 85);
+
+//Starting Screen
+mouseClicked =function(){
+    //Starting Screen
+    background(84, 87, 176);
+    fill(255, 255, 255);
+    
+
+//Controls
+textSize(45);
+text("Controls", 112, 36);
+
+//Left Arrow
+rect(70, 106, 40, 18);
+triangle(41, 115, 70, 136, 70, 95);
+textSize(25);
+text("Left", 57, 159);
+
+//Right Arrow
+rect(261, 106, 40, 18);
+triangle(330, 115, 302, 136, 302, 95);
+textSize(25);
+text("Right", 264, 159);
+
+//Up Arrow
+rect(175, 68, 18, 40);
+triangle(185, 39, 161, 68, 207, 68);
+textSize(25);
+text("Up", 169, 132);
+
+//Down Arrow
+rect(175, 146, 18, 40);
+triangle(185, 217, 161, 186, 207, 186);
+textSize(25);
+text("Down", 154, 235);
+//Objective 
+textSize(37);
+text("Objective", 111, 288);
+textSize(20);
+text("Avoid obstacles and ", 100, 315);
+textSize(20);
+text("get as far as possible",96, 342);
+
 };
