@@ -225,7 +225,7 @@ var drawScene2 =function(){
         downY3 = 500;
     }
     
-    if (score > 1500) {
+    if (score > 1600) {
         drawCar2();
     }
     
