@@ -236,7 +236,7 @@ var drawScene2 =function(){
     }
     
     //Car2 Collison
-    if (roadY2 < y + 20 && roadY2 > y - 20 && carX2 < x + 30 && carX2 > x - 30) {
+    if (roadY2 < y + 20 && roadY2 > y - 20 && carX2 < x + 30 && carX2 > x - 30 && score > 1600) {
         drawScene3();
         currentScene = 3;
         carX = x;
