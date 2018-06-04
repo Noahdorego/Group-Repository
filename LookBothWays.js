@@ -111,14 +111,44 @@ var drawRoad = function(){
 
 // Starting Screen
 var drawScene1 =function(){
-    background(84, 87, 176);
-    
-    fill(255, 255, 255);
-    textSize(50);
-    text("Look Both Ways", 18, 55);
-    textSize(20);
-    text("Use Arrow Keys to Avoid Enemies", 45, 100);
-    fill(74, 74, 74);
+//Main Screen
+background(84, 87, 176);
+fill(255, 255, 255);
+
+//Controls
+textSize(45);
+text("Controls", 112, 36);
+
+//Left Arrow
+rect(70, 106, 40, 18);
+triangle(41, 115, 70, 136, 70, 95);
+textSize(25);
+text("Left", 57, 159);
+
+//Right Arrow
+rect(263, 106, 40, 18);
+triangle(330, 115, 302, 136, 302, 95);
+textSize(25);
+text("Right", 264, 159);
+
+//Up Arrow
+rect(175, 68, 18, 40);
+triangle(185, 39, 161, 68, 207, 68);
+textSize(25);
+text("Up", 169, 132);
+
+//Down Arrow
+rect(175, 146, 18, 40);
+triangle(185, 217, 161, 186, 207, 186);
+textSize(25);
+text("Down", 154, 235);
+//Objective 
+textSize(37);
+text("Objective", 111, 288);
+textSize(20);
+text("Avoid obstacles and ", 100, 315);
+textSize(20);
+text("get as far as possible",96, 342);
 };
 
 //Losing Screen
