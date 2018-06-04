@@ -144,11 +144,11 @@ textSize(25);
 text("Down", 175, 235);
 //Objective 
 textSize(37);
-text("Objective", 120, 288);
+text("Objective", 130, 288);
 textSize(20);
-text("Avoid obstacles and ", 109, 315);
+text("Avoid obstacles and ", 120, 315);
 textSize(20);
-text("get as far as possible",104, 342);
+text("get as far as possible",115, 342);
 };
 
 //Losing Screen
