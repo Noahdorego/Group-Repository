@@ -117,7 +117,7 @@ fill(255, 255, 255);
 
 //Controls
 textSize(45);
-text("Controls", 112, 36);
+text("Controls", 115, 36);
 
 //Left Arrow
 rect(70, 106, 40, 18);
