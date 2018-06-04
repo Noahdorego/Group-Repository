@@ -119,11 +119,7 @@ fill(255, 255, 255);
 textSize(45);
 text("Controls", 112, 36);
 
-//Left Arrow
-rect(70, 106, 40, 18);
-triangle(41, 115, 70, 136, 70, 95);
-textSize(25);
-text("Left", 57, 159);
+
 
 //Right Arrow
 rect(263, 106, 40, 18);
