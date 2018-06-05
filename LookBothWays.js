@@ -205,24 +205,6 @@ var drawScene2 =function(){
      x -= 3;   
     }
 	    
-//Click Controls
-			
-if (mouseIsPressed && mouseX > 250 && mouseY > 100 && mouseY < 300) {
-	x += 3;
-}
-			
-if (mouseIsPressed && mouseX < 150 && mouseY > 100 && mouseY < 300) {
-	x -= 3;
-}
-		
-if (mouseIsPressed && mouseY < 150 && mouseX < 300 && mouseX > 100) {
-	y -= 2;
-}
-		
-if (mouseIsPressed && mouseY > 250 && mouseX < 300 && mouseX > 100) {
-	y += 2;
-}
-	    
 //Borders
     
     if (x < 10) {
