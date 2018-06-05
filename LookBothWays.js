@@ -204,7 +204,26 @@ var drawScene2 =function(){
     if (keyIsPressed && keyCode == 37) {
      x -= 3;   
     }
-    //Borders
+	    
+//Click Controls
+			
+if (mouseIsPressed && mouseX > 250 && mouseY > 100 && mouseY < 300) {
+	x += 3;
+}
+			
+if (mouseIsPressed && mouseX < 150 && mouseY > 100 && mouseY < 300) {
+	x -= 3;
+}
+		
+if (mouseIsPressed && mouseY < 150 && mouseX < 300 && mouseX > 100) {
+	y -= 2;
+}
+		
+if (mouseIsPressed && mouseY > 250 && mouseX < 300 && mouseX > 100) {
+	y += 2;
+}
+	    
+//Borders
     
     if (x < 10) {
      x = 10;   
