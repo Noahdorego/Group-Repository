@@ -372,6 +372,7 @@ mouseClicked=function(){
     x = 200;
     y = 380;
     score = 0;
-        drawScene2();
+    currentScene = 2;
+    drawScene2();
     }
 };
