@@ -1,4 +1,8 @@
+var song;
 function setup() {
+	song = loadSound('sound/media-d41f96a2.mp3');
+  createCanvas(720, 200);
+  background(255,0,0);
 	createCanvas(400, 400);
 	background(100);
 	noStroke();
@@ -379,6 +383,13 @@ draw = function() {
 
 // Scene Change
 mouseClicked=function(){
+	if ( song.isPlaying() ) { // .isPlaying() returns a boolean
+    song.stop();
+    background(255,0,0);
+  } else {
+    song.play();
+    background(0,255,0);
+  }
     if (currentScene === 1) {
         drawScene2();
     } else if (currentScene === 3) {
