@@ -1,8 +1,6 @@
 var song;
 function setup() {
 	song = loadSound('sound/media-d41f96a2.mp3');
-  createCanvas(720, 200);
-  background(255,0,0);
 	createCanvas(400, 400);
 	background(100);
 	noStroke();
