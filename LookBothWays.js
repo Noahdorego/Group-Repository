@@ -158,13 +158,6 @@ text("get as far as possible",115, 342);
 //Losing Screen
 var drawScene3 = function() {
     background(84, 87, 176);
-if ( song.isPlaying() ) { // .isPlaying() returns a boolean
-    song.stop();
-    background(255,0,0);
-  } else {
-    song.play();
-    background(0,255,0);
-  }
     
     score -= 1;
     if (score > highscore) {
@@ -390,6 +383,13 @@ draw = function() {
 
 // Scene Change
 mouseClicked=function(){
+	if ( song.isPlaying() ) { // .isPlaying() returns a boolean
+    song.stop();
+    background(255,0,0);
+  } else {
+    song.play();
+    background(0,255,0);
+  }
     if (currentScene === 1) {
         drawScene2();
     } else if (currentScene === 3) {
