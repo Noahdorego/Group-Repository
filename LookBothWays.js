@@ -265,7 +265,6 @@ if (mouseIsPressed && mouseY > 250 && mouseX < 300 && mouseX > 100) {
     
     //Car Collison
     if (roadY < y + 20 && roadY > y - 20 && carX < x + 30 && carX > x - 30) {
-        sound = loadSound (420356__eponn__crash.wav);
 	drawScene3();
         currentScene = 3;
         carX = x;
