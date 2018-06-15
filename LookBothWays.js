@@ -1,7 +1,7 @@
 var song;
 function setup() {
 	song = loadSound('sound/media-d41f96a2.mp3');
-	song2 = loadSound('420356__eponn__crash.wav');
+	song2 = loadSound('sound/420356__eponn__crash.wav');
 	createCanvas(400, 400);
 	background(100);
 	noStroke();
