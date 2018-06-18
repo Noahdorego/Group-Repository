@@ -1,11 +1,20 @@
 var song;
+
+
+function preload(){
+	song = loadSound('sound/bensound-summer.mp3');
+	//song2 = loadSound('sound/420356__eponn__crash.wav');
+}
+
 var song2;
+
 function setup() {
-	song = loadSound('sound/media-d41f96a2.mp3');
-	song2 = loadSound('sound/420356__eponn__crash.wav');
+	
 	createCanvas(400, 400);
 	background(100);
 	noStroke();
+	    //song.loop();
+
 }
 
 //Main Character
@@ -115,6 +124,7 @@ var drawRoad = function(){
 
 // Starting Screen
 var drawScene1 =function(){
+	
 //Main Screen
 background(84, 87, 176);
 fill(255, 255, 255);
@@ -157,6 +167,11 @@ text("get as far as possible",115, 342);
 
 //Losing Screen
 var drawScene3 = function() {
+
+
+   // song.play();
+  
+=======
 
     background(84, 87, 176);
     
@@ -384,11 +399,15 @@ draw = function() {
 
 // Scene Change
 mouseClicked=function(){
+
+	song.play();
+
 // if ( song.isPlaying() ) { // .isPlaying() returns a boolean
     //song.stop();
  // } else {
    // song.play();
  // }
+
     if (currentScene === 1) {
         drawScene2();
     } else if (currentScene === 3) {
