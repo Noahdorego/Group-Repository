@@ -1,4 +1,5 @@
 var song;
+var song2;
 function setup() {
 	song = loadSound('sound/media-d41f96a2.mp3');
 	song2 = loadSound('sound/420356__eponn__crash.wav');
@@ -156,11 +157,7 @@ text("get as far as possible",115, 342);
 
 //Losing Screen
 var drawScene3 = function() {
-if ( song.isPlaying() ) { // .isPlaying() returns a boolean
-    song.stop();
-  } else {
-    song.play();
-  }
+
     background(84, 87, 176);
     
     score -= 1;
@@ -271,6 +268,11 @@ if (mouseIsPressed && mouseY > 250 && mouseX < 300 && mouseX > 100) {
     
     //Car Collison
     if (roadY < y + 20 && roadY > y - 20 && carX < x + 30 && carX > x - 30) {
+if ( song2.isPlaying() ) { // .isPlaying() returns a boolean
+    song2.stop();
+  } else {
+    song2.play();
+  }
 	drawScene3();
         currentScene = 3;
         carX = x;
@@ -294,6 +296,11 @@ if (mouseIsPressed && mouseY > 250 && mouseX < 300 && mouseX > 100) {
     
     //Car2 Collison
     if (roadY2 < y + 20 && roadY2 > y - 20 && carX2 < x + 30 && carX2 > x - 30 && score > 1600) {
+if ( song2.isPlaying() ) { // .isPlaying() returns a boolean
+    song2.stop();
+  } else {
+    song2.play();
+  }
         drawScene3();
         currentScene = 3;
         carX = x;
@@ -387,6 +394,11 @@ draw = function() {
 
 // Scene Change
 mouseClicked=function(){
+if ( song.isPlaying() ) { // .isPlaying() returns a boolean
+    song.stop();
+  } else {
+    song.play();
+  }
     if (currentScene === 1) {
         drawScene2();
     } else if (currentScene === 3) {
