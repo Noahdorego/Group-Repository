@@ -5,6 +5,8 @@ function setup() {
 	createCanvas(400, 400);
 	background(100);
 	noStroke();
+	    song.play();
+
 }
 
 //Main Character
@@ -156,11 +158,9 @@ text("get as far as possible",115, 342);
 
 //Losing Screen
 var drawScene3 = function() {
-if ( song.isPlaying() ) { // .isPlaying() returns a boolean
-    song.stop();
-  } else {
+
     song.play();
-  }
+  
     background(84, 87, 176);
     
     score -= 1;
