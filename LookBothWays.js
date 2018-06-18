@@ -9,10 +9,10 @@ function setup() {
 	createCanvas(400, 400);
 	background(100);
 	noStroke();
-	    song.loop();
+	    //song.loop();
 
 }
-
+song.play();
 //Main Character
 var x = 200;
 var y = 380;
