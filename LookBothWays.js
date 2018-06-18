@@ -12,7 +12,7 @@ function setup() {
 	    //song.loop();
 
 }
-song.play();
+
 //Main Character
 var x = 200;
 var y = 380;
@@ -392,6 +392,7 @@ draw = function() {
 
 // Scene Change
 mouseClicked=function(){
+	song.play();
     if (currentScene === 1) {
         drawScene2();
     } else if (currentScene === 3) {
